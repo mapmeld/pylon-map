@@ -16,7 +16,7 @@ and other PaaS sites.
 Pass in a list of lines and platforms which they arrive on:
 
 ```javascript
-var PylonMap = require('pylon-map');
+var SystemMap = require('pylon-map');
 var lines = [
   {
     name: "Richmond-Millbrae",
@@ -30,9 +30,9 @@ var lines = [
     ]
   }
 ];
-var systemMap = new PylonMap(lines);
+var map = new SystemMap(lines);
 
-var stations = systemMap.getStops();
+var stations = map.getStops();
 > [Object]
 
 stations[0].name
