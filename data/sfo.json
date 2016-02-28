@@ -79,7 +79,7 @@
     "name": "Millbrae-Richmond",
     "alwaysRunning": false,
     "stops": [
-    	{"name":"Millbrae","platforms":[2]},
+    	{"name":"Millbrae","platforms":[1]},
 		{"name":"San Bruno","platforms":[2]},
 		{"name":"South San Francisco","platforms":[2]},
 		{"name":"Colma","platforms":[2]},
@@ -169,7 +169,7 @@
     "name": "Fremont-Richmond",
     "alwaysRunning": true,
     "stops": [
-    	{"name":"Fremont","platforms":[2]},
+    	{"name":"Fremont","platforms":[1]},
 		{"name":"Union City","platforms":[2]},
 		{"name":"South Hayward","platforms":[2]},
 		{"name":"Hayward","platforms":[2]},
@@ -193,7 +193,7 @@
     "name": "SFO-Pittsburg",
     "alwaysRunning": true,
     "stops": [
-    	{"name":"SFO","platforms":[2]},
+    	{"name":"SFO","platforms":[1]},
 		{"name":"San Bruno","platforms":[2]},
 		{"name":"South San Francisco","platforms":[2]},
 		{"name":"Colma","platforms":[2]},
@@ -250,5 +250,102 @@
 		{"name":"San Bruno","platforms":[1]},
 		{"name":"SFO","platforms":[1]}
 	]
+  },
+  {
+    "name": "Dublin-Daly City",
+    "alwaysRunning": true,
+    "stops": [
+    	{"name":"Dublin/Pleasanton","platforms":[1]},
+		{"name":"West Dublin/Pleasanton","platforms":[1]},
+		{"name":"Castro Valley","platforms":[1]},
+		{"name":"Bay Fair","platforms":[1]},
+		{"name":"San Leandro","platforms":[1]},
+		{"name":"Coliseum","platforms":[1]},
+		{"name":"Fruitvale","platforms":[1]},
+		{"name":"Lake Merritt","platforms":[1]},
+		{"name":"West Oakland","platforms":[1]},
+		{"name":"Embarcadero","platforms":[1]},
+		{"name":"Montgomery","platforms":[1]},
+		{"name":"Powell","platforms":[1]},
+		{"name":"Civic Center","platforms":[1]},
+		{"name":"16th & Mission","platforms":[1]},
+		{"name":"24th & Mission","platforms":[1]},
+		{"name":"Glen Park","platforms":[1]},
+		{"name":"Balboa Park","platforms":[1]},
+		{"name":"Daly City","platforms":[1]}
+	]
+  },
+  {
+    "name": "Daly City-Dublin",
+    "alwaysRunning": true,
+    "stops": [
+      {"name":"Daly City","platforms":[2]},
+      {"name":"Balboa Park","platforms":[2]},
+      {"name":"Glen Park","platforms":[2]},
+      {"name":"24th & Mission","platforms":[2]},
+      {"name":"16th & Mission","platforms":[2]},
+      {"name":"Civic Center","platforms":[2]},
+      {"name":"Powell","platforms":[2]},
+      {"name":"Montgomery","platforms":[2]},
+      {"name":"Embarcadero","platforms":[2]},
+      {"name":"West Oakland","platforms":[2]},
+      {"name":"Lake Merritt","platforms":[2]},
+      {"name":"Fruitvale","platforms":[2]},
+      {"name":"Coliseum","platforms":[2]},
+      {"name":"San Leandro","platforms":[2]},
+      {"name":"Bay Fair","platforms":[3]},
+      {"name":"Castro Valley","platforms":[2]},
+      {"name":"West Dublin/Pleasanton","platforms":[2]},
+      {"name":"Dublin/Pleasanton","platforms":[1]}]
+  },
+  {
+    "name": "Fremont-Daly City",
+    "alwaysRunning": false,
+    "stops": [
+    	{"name":"Fremont","platforms":[1]},
+    	{"name":"Union City","platforms":[2]},
+    	{"name":"South Hayward","platforms":[2]},
+    	{"name":"Hayward","platforms":[2]},
+		{"name":"Bay Fair","platforms":[2]},
+		{"name":"San Leandro","platforms":[2]},
+		{"name":"Coliseum","platforms":[2]},
+		{"name":"Fruitvale","platforms":[2]},
+		{"name":"Lake Merritt","platforms":[2]},
+		{"name":"West Oakland","platforms":[1]},
+		{"name":"Embarcadero","platforms":[1]},
+		{"name":"Montgomery","platforms":[1]},
+		{"name":"Powell","platforms":[1]},
+		{"name":"Civic Center","platforms":[1]},
+		{"name":"16th & Mission","platforms":[1]},
+		{"name":"24th & Mission","platforms":[1]},
+		{"name":"Glen Park","platforms":[1]},
+		{"name":"Balboa Park","platforms":[1]},
+		{"name":"Daly City","platforms":[1]}
+	]
+  },
+  {
+    "name": "Daly City-Fremont",
+    "alwaysRunning": false,
+    "stops": [
+      {"name":"Daly City","platforms":[2]},
+      {"name":"Balboa Park","platforms":[2]},
+      {"name":"Glen Park","platforms":[2]},
+      {"name":"24th & Mission","platforms":[2]},
+      {"name":"16th & Mission","platforms":[2]},
+      {"name":"Civic Center","platforms":[2]},
+      {"name":"Powell","platforms":[2]},
+      {"name":"Montgomery","platforms":[2]},
+      {"name":"Embarcadero","platforms":[2]},
+      {"name":"West Oakland","platforms":[2]},
+      {"name":"Lake Merritt","platforms":[1]},
+      {"name":"Fruitvale","platforms":[1]},
+      {"name":"Coliseum","platforms":[1]},
+      {"name":"San Leandro","platforms":[1]},
+      {"name":"Bay Fair","platforms":[1]},
+      {"name":"Hayward","platforms":[1]},
+      {"name":"South Hayward","platforms":[1]},
+      {"name":"Union City","platforms":[1]},
+      {"name":"Fremont","platforms":[1]}
+    ]
   }
 ]
