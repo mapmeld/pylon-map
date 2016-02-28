@@ -1,0 +1,254 @@
+[
+  {
+    "name": "Richmond-Millbrae",
+    "alwaysRunning": false,
+    "stops": [
+      {
+        "name": "Richmond",
+        "platforms": [1]
+      },{
+        "name": "El Cerrito del Norte",
+        "platforms": [1]
+      },{
+        "name": "El Cerrito Plaza",
+        "platforms": [1]
+      },{
+        "name": "North Berkeley",
+        "platforms": [1]
+      },{
+        "name": "Downtown Berkeley",
+        "platforms": [1]
+      },{
+        "name": "Ashby",
+        "platforms": [1]
+      },{
+        "name": "MacArthur",
+        "platforms": [1]
+      },{
+        "name": "19th St Oakland",
+        "platforms": [1]
+      },{
+        "name": "12 St Oakland",
+        "platforms": [1]
+      },{
+        "name": "West Oakland",
+        "platforms": [1]
+      },{
+        "name": "Embarcadero",
+        "platforms": [1]
+      },{
+        "name": "Montgomery",
+        "platforms": [1]
+      },{
+        "name": "Powell",
+        "platforms": [1]
+      },{
+        "name": "Civic Center",
+        "platforms": [1]
+      },{
+        "name": "16th & Mission",
+        "platforms": [1]
+      },{
+        "name": "24th & Mission",
+        "platforms": [1]
+      },{
+        "name": "Glen Park",
+        "platforms": [1]
+      },{
+        "name": "Balboa Park",
+        "platforms": [1]
+      },{
+        "name": "Daly City",
+        "platforms": [1]
+      },{
+        "name": "Colma",
+        "platforms": [1]
+      },{
+        "name": "South San Francisco",
+        "platforms": [1]
+      },{
+        "name": "San Bruno",
+        "platforms": [1]
+      },{
+        "name": "Millbrae",
+        "platforms": [1]
+      }
+    ]
+  },
+  {
+    "name": "Millbrae-Richmond",
+    "alwaysRunning": false,
+    "stops": [
+    	{"name":"Millbrae","platforms":[2]},
+		{"name":"San Bruno","platforms":[2]},
+		{"name":"South San Francisco","platforms":[2]},
+		{"name":"Colma","platforms":[2]},
+		{"name":"Daly City","platforms":[2]},
+		{"name":"Balboa Park","platforms":[2]},
+		{"name":"Glen Park","platforms":[2]},
+		{"name":"24th & Mission","platforms":[2]},
+		{"name":"16th & Mission","platforms":[2]},
+		{"name":"Civic Center","platforms":[2]},
+		{"name":"Powell","platforms":[2]},
+		{"name":"Montgomery","platforms":[2]},
+		{"name":"Embarcadero","platforms":[2]},
+		{"name":"West Oakland","platforms":[2]},
+		{"name":"12 St Oakland","platforms":[2]},
+		{"name":"19th St Oakland","platforms":[2]},
+		{"name":"MacArthur","platforms":[2]},
+		{"name":"Ashby","platforms":[2]},
+		{"name":"Downtown Berkeley","platforms":[2]},
+		{"name":"North Berkeley","platforms":[2]},
+		{"name":"El Cerrito Plaza","platforms":[2]},
+		{"name":"El Cerrito del Norte","platforms":[2]},
+		{"name":"Richmond","platforms":[1]}
+	]
+  },
+  {
+    "name": "Richmond-Fremont",
+    "alwaysRunning": true,
+    "stops": [
+      {
+        "name": "Richmond",
+        "platforms": [1]
+      },{
+        "name": "El Cerrito del Norte",
+        "platforms": [1]
+      },{
+        "name": "El Cerrito Plaza",
+        "platforms": [1]
+      },{
+        "name": "North Berkeley",
+        "platforms": [1]
+      },{
+        "name": "Downtown Berkeley",
+        "platforms": [1]
+      },{
+        "name": "Ashby",
+        "platforms": [1]
+      },{
+        "name": "MacArthur",
+        "platforms": [1]
+      },{
+        "name": "19th St Oakland",
+        "platforms": [1]
+      },{
+        "name": "12 St Oakland",
+        "platforms": [1]
+      },{
+        "name": "Lake Merritt",
+        "platforms": [1]
+      },{
+        "name": "Fruitvale",
+        "platforms": [1]
+      },{
+        "name": "Coliseum",
+        "platforms": [1]
+      },{
+        "name": "San Leandro",
+        "platforms": [1]
+      },{
+        "name": "Bay Fair",
+        "platforms": [1]
+      },{
+        "name": "Hayward",
+        "platforms": [1]
+      },{
+        "name": "South Hayward",
+        "platforms": [1]
+      },{
+        "name": "Union City",
+        "platforms": [1]
+      },{
+        "name": "Fremont",
+        "platforms": [1]
+      }
+    ]
+  },
+  {
+    "name": "Fremont-Richmond",
+    "alwaysRunning": true,
+    "stops": [
+    	{"name":"Fremont","platforms":[2]},
+		{"name":"Union City","platforms":[2]},
+		{"name":"South Hayward","platforms":[2]},
+		{"name":"Hayward","platforms":[2]},
+		{"name":"Bay Fair","platforms":[2]},
+		{"name":"San Leandro","platforms":[2]},
+		{"name":"Coliseum","platforms":[2]},
+		{"name":"Fruitvale","platforms":[2]},
+		{"name":"Lake Merritt","platforms":[2]},
+		{"name":"12 St Oakland","platforms":[2]},
+		{"name":"19th St Oakland","platforms":[2]},
+		{"name":"MacArthur","platforms":[2]},
+		{"name":"Ashby","platforms":[2]},
+		{"name":"Downtown Berkeley","platforms":[2]},
+		{"name":"North Berkeley","platforms":[2]},
+		{"name":"El Cerrito Plaza","platforms":[2]},
+		{"name":"El Cerrito del Norte","platforms":[2]},
+		{"name":"Richmond","platforms":[1]}
+	]
+  },
+  {
+    "name": "SFO-Pittsburg",
+    "alwaysRunning": true,
+    "stops": [
+    	{"name":"SFO","platforms":[2]},
+		{"name":"San Bruno","platforms":[2]},
+		{"name":"South San Francisco","platforms":[2]},
+		{"name":"Colma","platforms":[2]},
+		{"name":"Daly City","platforms":[2]},
+		{"name":"Balboa Park","platforms":[2]},
+		{"name":"Glen Park","platforms":[2]},
+		{"name":"24th & Mission","platforms":[2]},
+		{"name":"16th & Mission","platforms":[2]},
+		{"name":"Civic Center","platforms":[2]},
+		{"name":"Powell","platforms":[2]},
+		{"name":"Montgomery","platforms":[2]},
+		{"name":"Embarcadero","platforms":[2]},
+		{"name":"West Oakland","platforms":[2]},
+		{"name":"12 St Oakland","platforms":[2]},
+		{"name":"19th St Oakland","platforms":[2]},
+		{"name":"MacArthur","platforms":[3]},
+		{"name":"Rockridge","platforms":[2]},
+		{"name":"Orinda","platforms":[2]},
+		{"name":"Lafayette","platforms":[2]},
+		{"name":"Walnut Creek","platforms":[2]},
+		{"name":"Pleasant Hill","platforms":[2]},
+		{"name":"Concord","platforms":[2]},
+		{"name":"North Concord","platforms":[2]},
+		{"name":"Pittsburg","platforms":[2]}
+	]
+  },
+  {
+    "name": "Pittsburg-SFO",
+    "alwaysRunning": true,
+    "stops": [
+    	{"name":"Pittsburg","platforms":[1]},
+		{"name":"North Concord","platforms":[1]},
+		{"name":"Concord","platforms":[1]},
+		{"name":"Pleasant Hill","platforms":[1]},
+		{"name":"Walnut Creek","platforms":[1]},
+		{"name":"Lafayette","platforms":[1]},
+		{"name":"Orinda","platforms":[1]},
+		{"name":"Rockridge","platforms":[1]},
+		{"name":"MacArthur","platforms":[1]},
+		{"name":"19th St Oakland","platforms":[1]},
+		{"name":"12 St Oakland","platforms":[1]},
+		{"name":"West Oakland","platforms":[1]},
+		{"name":"Embarcadero","platforms":[1]},
+		{"name":"Montgomery","platforms":[1]},
+		{"name":"Powell","platforms":[1]},
+		{"name":"Civic Center","platforms":[1]},
+		{"name":"16th & Mission","platforms":[1]},
+		{"name":"24th & Mission","platforms":[1]},
+		{"name":"Glen Park","platforms":[1]},
+		{"name":"Balboa Park","platforms":[1]},
+		{"name":"Daly City","platforms":[1]},
+		{"name":"Colma","platforms":[1]},
+		{"name":"South San Francisco","platforms":[1]},
+		{"name":"San Bruno","platforms":[1]},
+		{"name":"SFO","platforms":[1]}
+	]
+  }
+]
