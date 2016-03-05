@@ -6,6 +6,16 @@ var SystemMap = require('./index.js');
 var lines = require('./data/sfo.json');
 
 var pm = new SystemMap(lines);
-pm.saveMap('Downtown Berkeley', 1, './el-cerr-1.png', function (err, data) {
+
+
+// inbound - representing transfers
+pm.saveMap('Downtown Berkeley', 1, './berkeley-1.png', function (err, data) {
   console.log(data);
 });
+
+// outbound - no transfers
+/*
+pm.saveMap('Downtown Berkeley', 2, './berkeley-2.png', function (err, data) {
+  console.log(data);
+});
+*/

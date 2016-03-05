@@ -7,7 +7,7 @@ var Canvas = require('canvas');
 // individual stop
 var Stop = function(name, platforms) {
   this.name = name;
-  this.platforms = platforms;
+  this.platforms = platforms.concat([]);
   this.lines = [];
   return this;
 };
@@ -17,7 +17,7 @@ Stop.prototype = {
 // system map
 var SystemMap = function(lines) {
   this.lines = lines;
-  
+
   // set unique stops
   var knownNames = [];
   this.stops = [];
@@ -38,7 +38,7 @@ var SystemMap = function(lines) {
           if (this.stops[x].name === name) {
             // record line
             this.stops[x].lines.push(line.name);
-            
+
             // make sure all platforms are stored
             for (var p = 0; p < platforms.length; p++) {
               if (this.stops[x].platforms.indexOf(platforms[p]) === -1) {
@@ -51,6 +51,7 @@ var SystemMap = function(lines) {
       }
     }
   }
+  this.setLinesForStops();
   return this;
 };
 
@@ -58,7 +59,16 @@ SystemMap.prototype = {
   getStops: function() {
     return this.stops;
   },
-  
+
+  setLinesForStops: function() {
+    var linesByStop = {};
+    for (var s = 0; s < this.stops.length; s++) {
+      var stop = this.stops[s];
+      linesByStop[stop.name.toLowerCase().replace(/\s/g, '')] = stop.lines;
+    }
+    this.linesByStop = linesByStop;
+  },
+
   getOutgoingLines: function(stop, platformId) {
     var outgoingLines = [];
     for (var l = 0; l < this.lines.length; l++) {
@@ -83,38 +93,55 @@ SystemMap.prototype = {
         }
       }
       if (futureStops.length) {
-        outgoingLines.push(futureStops);
+        outgoingLines.push({ name: line.name, stops: futureStops });
       }
     }
     return outgoingLines;
   },
-  
-  getCommonStops: function(outgoingLines) {
+
+  getFutureStops: function(outgoingLines, originalStation) {
     var commonStops;
-    if (outgoingLines.length === 1) {
-      // only one line... so easy
-      commonStops = outgoingLines[0];
-    } else {
-      // add until you find divergence
-      commonStops = [];
-      for (var s = 0; s < outgoingLines[0].length; s++) {
-        var diverged = false;
-        for (var l = 1; l < outgoingLines.length; l++) {
-          if (outgoingLines[l][s].name !== outgoingLines[0][s].name) {
-            diverged = true;
-            break;
-          }
-        }
-        if (!diverged) {
-          commonStops.push(outgoingLines[0][s]);
-        } else {
+    var knownTransfers = [];
+
+    // add until you find divergence
+    commonStops = [];
+    for (var s = 0; s < outgoingLines[0].stops.length; s++) {
+      var diverged = false;
+      for (var l = 1; l < outgoingLines.length; l++) {
+        if (outgoingLines[l].stops[s].name !== outgoingLines[0].stops[s].name) {
+          diverged = true;
           break;
         }
+      }
+      if (!diverged) {
+        var transfers = this.getTransfers(outgoingLines[0].stops[s], originalStation, knownTransfers);
+        knownTransfers = knownTransfers.concat(transfers);
+        var stop = outgoingLines[0].stops[s];
+        commonStops.push({
+          name: stop.name,
+          transfers: transfers
+        });
+      } else {
+        break;
       }
     }
     return commonStops;
   },
-  
+
+  getTransfers: function(stop, originalStation, knownTransfers) {
+    var transfers = [];
+    var boardable = this.linesByStop;
+    var originalBoardable = boardable[originalStation];
+    var transferable = boardable[stop.name.toLowerCase().replace(/\s/g, '')];
+    for (var t = 0; t < transferable.length; t++) {
+      if (knownTransfers.indexOf(transferable[t]) === -1 && originalBoardable.indexOf(transferable[t]) === -1) {
+        knownTransfers.push(transferable[t]);
+        transfers.push(transferable[t]);
+      }
+    }
+    return transfers;
+  },
+
   drawStop: function(x, color, name, filled) {
     if (!this.ctx) {
       throw 'canvas was not initialized';
@@ -124,7 +151,7 @@ SystemMap.prototype = {
     this.ctx.beginPath();
     this.ctx.arc(x, 100, 30, 0, 2 * Math.PI, true);
     this.ctx.closePath();
-    
+
     if (!filled) {
       this.ctx.fill();
       this.ctx.beginPath();
@@ -141,12 +168,12 @@ SystemMap.prototype = {
     this.ctx.closePath();
     this.ctx.fill();
   },
-  
+
   connectCircles: function(x1, x2, color) {
     if (!this.ctx) {
       throw 'canvas was not initialized';
     }
-    
+
     this.ctx.strokeStyle = color;
     this.ctx.lineWidth = 10;
     this.ctx.beginPath();
@@ -155,12 +182,37 @@ SystemMap.prototype = {
     this.ctx.closePath();
     this.ctx.stroke();
   },
-  
+
+  drawTransfers: function(x, color, transfers) {
+    if (!this.ctx) {
+      throw 'canvas was not initialized';
+    }
+
+    this.ctx.strokeStyle = color;
+    this.ctx.lineWidth = 8;
+    this.ctx.beginPath();
+    this.ctx.moveTo(x, 100);
+    this.ctx.lineTo(x - 70, 170);
+    this.ctx.closePath();
+    this.ctx.stroke();
+
+    transfers = transfers.map(function(line) {
+      return line.split('-')[1];
+    });
+
+    this.ctx.beginPath();
+    this.ctx.fillStyle = '#000';
+    var nameWidth = this.ctx.measureText(transfers.join(' | ')).width;
+    this.ctx.fillText(transfers.join(' | '), x - 70 - Math.round(nameWidth / 2), 180);
+    this.ctx.closePath();
+    this.ctx.fill();
+  },
+
   saveMap: function(name, platformId, saveFile, callback) {
     if (!callback) {
       callback = console.error;
     }
-    
+
     // retrieve stop and platform
     var stop = null;
     name = name.toLowerCase().replace(/\s/g, '');
@@ -176,31 +228,35 @@ SystemMap.prototype = {
     if (stop.platforms.indexOf(platformId) === -1) {
       return callback('that platform-ID does not exist');
     }
-    
+
     // extract all future stops
     var outgoingLines = this.getOutgoingLines(stop, platformId);
-    
+
     if (!outgoingLines.length) {
       return callback('there are no trains departing from this platform');
     }
-    
+
     // how far can you go before outgoing lines diverge?
-    var commonStops = this.getCommonStops(outgoingLines);
-    
+    // include transfers
+    var commonStops = this.getFutureStops(outgoingLines, name);
+
     // create the canvas
     var canv = new Canvas((commonStops.length + 1) * 100, 200);
     this.ctx = canv.getContext('2d');
     this.ctx.fillStyle = '#fff';
     this.ctx.fillRect(0, 0, (commonStops.length + 1) * 100, 200);
     this.ctx.fill();
-    
+
     this.drawStop(50, 'orange', stop.name, true);
-    
+
     for (var s = 0; s < commonStops.length; s++) {
       this.connectCircles(50 + s * 100, 150 + s * 100, 'orange');
       this.drawStop(150 + s * 100, 'orange', commonStops[s].name);
+      if (commonStops[s].transfers && commonStops[s].transfers.length) {
+        this.drawTransfers(150 + s * 100, 'red', commonStops[s].transfers);
+      }
     }
-    
+
     var output = fs.createWriteStream(saveFile);
     canv.pngStream()
       .on('data', function(chunk){
