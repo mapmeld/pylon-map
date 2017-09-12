@@ -1,5 +1,7 @@
 # pylon-map
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mapmeld/pylon-map.svg)](https://greenkeeper.io/)
+
 Generate platform-specific subway maps in NodeJS
 
 Inspired by Washington DC Metro
